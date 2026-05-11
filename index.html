@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3F Elite Logistic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #AA8A2E;
+            --black: #0A0A0A;
+            --gray: #1A1A1A;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: white;
+            scroll-behavior: smooth;
+        }
+        .gold-text { color: var(--gold); }
+        .gold-bg { background-color: var(--gold); }
+        .gold-border { border-color: var(--gold); }
+        
+        .nav-link:hover { color: var(--gold); transition: 0.3s; }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card {
+            background: var(--gray);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .logo-font {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+        }
+
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="fixed w-full z-50 bg-black/90 border-b border-gold/20 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold logo-font gold-text">S3F <span class="text-white text-sm uppercase tracking-widest block md:inline md:ml-2">Elite Logistic</span></div>
+            <div class="hidden md:flex space-x-8 uppercase text-xs tracking-widest font-bold">
+                <a href="#about" class="nav-link">О нас</a>
+                <a href="#rules" class="nav-link">Правила</a>
+                <a href="#convoys" class="nav-link">Конвои</a>
+                <a href="#drivers" class="nav-link">Водители</a>
+                <a href="#gallery" class="nav-link">Галерея</a>
+            </div>
+            <button class="md:hidden gold-text text-2xl" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Моб меню -->
+        <div id="mobile-menu" class="hidden bg-black border-b border-gold/20 p-4 space-y-4 text-center">
+            <a href="#about" class="block nav-link" onclick="toggleMenu()">О нас</a>
+            <a href="#rules" class="block nav-link" onclick="toggleMenu()">Правила</a>
+            <a href="#convoys" class="block nav-link" onclick="toggleMenu()">Конвои</a>
+            <a href="#drivers" class="block nav-link" onclick="toggleMenu()">Водители</a>
+            <a href="#gallery" class="block nav-link" onclick="toggleMenu()">Галерея</a>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <section class="h-screen hero-gradient flex items-center justify-center text-center px-4">
+        <div>
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 logo-font">S3F</h1>
+            <p class="text-xl md:text-2xl gold-text uppercase tracking-[0.5em] mb-8">Elite Logistic</p>
+            <div class="h-1 w-24 gold-bg mx-auto mb-8"></div>
+            <p class="max-w-2xl mx-auto text-gray-300 mb-10">Премиальные грузоперевозки в мире Euro Truck Simulator 2 и American Truck Simulator. Качество, дисциплина и стиль.</p>
+            <a href="#convoys" class="inline-block border-2 border-gold gold-text px-8 py-3 uppercase tracking-widest hover:bg-gold hover:text-black transition-all font-bold">Ближайшие рейсы</a>
+        </div>
+    </section>
+
+    <!-- О нас и Правила -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-6 gold-text uppercase tracking-wider">О компании</h2>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                   S3F Elite Logistic — это команда водителей, которые любят реализм и рорядок на дороге. Мы превращаем каждую поездку в интересное событие и цени культурное вождение.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    Наша цель — стать эталоном качества в TruckersMP, объединяя людей со схожими интересами и страстью к дорогам.
+                </p>
+            </div>
+            <div id="rules" class="bg-gray-900/50 p-8 border-l-4 border-gold">
+                <h2 class="text-3xl font-bold mb-6 gold-text uppercase tracking-wider">Правила компании</h2>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-start"><i class="fas fa-check gold-text mt-1 mr-3"></i> Соблюдение ПДД на серверах Simulation.</li>
+                    <li class="flex items-start"><i class="fas fa-check gold-text mt-1 mr-3"></i> Наличие корпоративной раскраски (Midnight Edge) на официальных конвояx компании.</li>
+                    <li class="flex items-start"><i class="fas fa-check gold-text mt-1 mr-3"></i> Уважительное отношение ко всем участникам движения.</li>
+                    <li class="flex items-start"><i class="fas fa-check gold-text mt-1 mr-3"></i> Возраст приема: 14+ (есть исключения).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Конвои -->
+    <section id="convoys" class="py-20 bg-zinc-900/30">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center uppercase tracking-widest">Ближайшие <span class="gold-text">Конвои</span></h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-gold/30 text-gold uppercase text-sm tracking-tighter">
+                            <th class="py-4 px-6">Дата и Время</th>
+                            <th class="py-4 px-6">Маршрут</th>
+                            <th class="py-4 px-6">Сервер</th>
+                            <th class="py-4 px-6">Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-6 font-bold">16 Мая, 16:00 МСК</td>
+                            <td class="py-4 px-6">Кале — Дуйсбург</td>
+                            <td class="py-4 px-6">Simulation 1</td>
+                            <td class="py-4 px-6"><span class="bg-green-600/20 text-green-500 px-3 py-1 rounded-full text-xs">Открыт</span></td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-6 font-bold">17 Мая, 16:00 МСК</td>
+                            <td class="py-4 px-6">Клангефурт-ам-Вёртерзе — Инсбрук</td>
+                            <td class="py-4 px-6">Simulation 1</td>
+                            <td class="py-4 px-6"><span class="bg-yellow-600/20 text-yellow-500 px-3 py-1 rounded-full text-xs">Планируется</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Водители -->
+    <section id="drivers" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center uppercase tracking-widest">Наши <span class="gold-text">Руководители</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Водитель 1 -->
+                <div class="card p-6 text-center">
+                    <div class="w-24 h-24 bg-gold/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-gold">
+                        <i class="fas fa-user-tie text-3xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">S3merFox</h3>
+                    <p class="text-gold text-xs uppercase tracking-widest mb-4">Генеральный директор</p>
+                    <div class="flex justify-center space-x-3 text-gray-500">
+                        <i class="fab fa-steam"></i>
+                        <i class="fab fa-discord"></i>
+                    </div>
+                </div>
+                <!-- Водитель 2 -->
+                <div class="card p-6 text-center">
+                    <div class="w-24 h-24 bg-gold/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-gold">
+                        <i class="fas fa-user-shield text-3xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">BaxBani77777</h3>
+                    <p class="text-gold text-xs uppercase tracking-widest mb-4">Заместитель директора</p>
+                    <div class="flex justify-center space-x-3 text-gray-500">
+                        <i class="fab fa-steam"></i>
+                    </div>
+                </div>
+                <!-- Добавьте больше водителей здесь -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="py-20 bg-zinc-900/30 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center uppercase tracking-widest">Галерея <span class="gold-text">S3F</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="aspect-video bg-gray-800 overflow-hidden border border-white/10">
+                    <img src="truck1.jpg" alt="Truck 1" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-video bg-gray-800 overflow-hidden border border-white/10">
+                    <img src="truck2.jpg" alt="Truck 2" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="aspect-video bg-gray-800 overflow-hidden border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1501700489912-fb81b6aa647e?auto=format&fit=crop&w=800&q=80" alt="Truck 3" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер / Соцсети -->
+    <footer class="py-12 border-t border-gold/20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="text-3xl font-bold logo-font gold-text mb-8">S3F ELITE</div>
+            <div class="flex justify-center space-x-8 mb-10">
+                <a href="https://discord.gg/zSqmQEXBp" class="text-2xl hover:text-gold transition"><i class="fab fa-discord"></i></a>
+                <a href="https://truckersmp.com/vtc/89206" class="text-2xl hover:text-gold transition"><i class="fas fa-truck-moving"></i></a> <!-- Замена TruckersMP -->
+                <a href="https://t.me/S3FEliteLogistic" class="text-2xl hover:text-gold transition"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">© 2026 S3F Elite Logistic. Все права защищены. Мы не являемся реальной транспортной компанией.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
